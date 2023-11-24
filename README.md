@@ -1,0 +1,1 @@
+# script_link_image_to_VKImageLink
