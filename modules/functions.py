@@ -6,7 +6,7 @@ import requests
 import json
 
 username = 'BSNIKChannel'
-tn = '9b4dacfb605d41ea0e1b99a952fc4e95e330814c'
+tn = 'TOKEN'
 
 if str(os.name) == "nt":dir_pref = "\\"
 else:dir_pref = "/"
