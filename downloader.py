@@ -22,6 +22,13 @@ if str(os.name) == "nt":dir_pref = "\\"
 else:dir_pref = "/"
 
 def download(workingdirectory, file='data.json'):
+    """
+    Загружает изображения из JSON-файла и сохраняет успешно загруженные изображения в указанной директории.
+
+    Args:
+        workingdirectory (str): Рабочая директория для сохранения изображений.
+        file (str): Имя JSON-файла с данными. По умолчанию: 'data.json'.
+    """
     with open(file) as f:data = json.load(f)
 
     o = os.getcwd()
@@ -35,6 +42,16 @@ def download(workingdirectory, file='data.json'):
 
 
 def download_function(url, name_file):
+  """
+    Пытается загрузить файл по указанному URL и обрабатывает различные ошибки.
+
+    Args:
+        url (str): URL для загрузки файла.
+        name_file (str): Имя файла для сохранения.
+
+    Returns:
+        str: Статус операции (код HTTP, ошибки и т. д.).
+  """
   url = url.replace(" ", "%20")
 
   if "?size=" in url:
@@ -130,6 +147,16 @@ def download_function(url, name_file):
 
 
 def DDF(url, i):
+      """
+    Обрабатывает URL, определяет расширение файла, создает уникальное имя файла и пытается загрузить файл.
+
+    Args:
+        url (str): URL для загрузки файла.
+        i (int): Уникальный индекс.
+
+    Returns:
+        str: Имя успешно загруженного файла.
+      """
       zn = url
       
       if zn !='imgs18':
