@@ -18,6 +18,12 @@ token = '50d72b841f3dc14d406a32c1f258d49fdccb6771'
 path = f'/home/{username}/'
 
 class ResponseCodeError(Exception):
+  """
+    Пользовательское исключение для обработки неожиданных кодов ответа во время запросов к API.
+
+    Атрибуты:
+        message (str): Опциональное сообщение об ошибке, связанное с исключением.
+  """
   def __init__(self, *args):
     if args:self.message = args[0]
     else:self.message = None
@@ -28,10 +34,15 @@ class ResponseCodeError(Exception):
 
 
 def upload_to_server(filename):
-    
-    # for file in os.scandir('upload'):
-    #     if file.is_file():
-    #         if file.name != 'content':
+                """
+    Загружает файл на сервер PythonAnywhere.
+
+    Аргументы:
+        filename (str): Имя файла для загрузки.
+
+    Исключения:
+        ResponseCodeError: Если код состояния ответа не равен 201 или 200.
+                """
                 file_name = filename
                 w_dir = os.getcwd()
                 shutil.copy(f'{w_dir}/{file_name}', f'{w_dir}/content')
@@ -47,6 +58,16 @@ def upload_to_server(filename):
 
 
 def get_request(file, file_name):
+    """
+    Выполняет POST-запрос для загрузки файла на сервер PythonAnywhere.
+
+    Аргументы:
+        file: Объект файла для загрузки.
+        file_name (str): Имя файла.
+
+    Исключения:
+        ResponseCodeError: Если код состояния ответа не равен 201 или 200.
+    """
     m = f'/api/v0/user/{username}/files/path{path}'
     response = requests.post(f'https://www.pythonanywhere.com/{m}/{file_name}', files={'content': file}, headers={'Authorization': 'Token ' + token})
     # print(response.status_code, response.text)
