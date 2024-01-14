@@ -1,0 +1,2 @@
+class NotPostingImages(Exception):
+    pass
