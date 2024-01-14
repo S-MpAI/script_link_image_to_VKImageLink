@@ -2,17 +2,6 @@ import os
 import json
 import time
 import traceback
-# try:
-#     from modules.random_neko_list import imgs, imgs18
-#     data = imgs + imgs18
-# except:
-#     with open('data.json', "r+") as f:data = json.load(f)
-
-# if os.path.exists('config.json'):
-#     with open('data.json', "r+") as f:data = json.load(f)
-#     already_donload = data.get('already_donload')
-# else:
-#     already_donload = 0
 from modules.py_upload import upload_to_server
 from modules.vk_upload import vk_uploader
 from modules.downloader import DDF
@@ -35,63 +24,6 @@ NewVKLinks = []
 
 o = 0
 
-# try:
-#     for link in data:
-        
-#         if type(link) == dict:pass
-#         else:
-#             if link not in ['imgs', 'imgs18']:
-
-#                 if str(link.split('/')[2]) not in  ['i.pinimg.com','i.pximg.net']:
-#                     if 'https://sun' not in str(link):
-#                         # print(str(link.split('/')[2]))
-
-#                         if list(link.split('.'))[-1] in access_image_list:
-#                             if not os.path.exists(VK_folder):
-#                                 os.mkdir(VK_folder)
-#                             os.chdir(VK_folder)
-#                             name_file = DDF(link, o)
-#                             per_link = link
-                            
-#                             os.chdir(w_dir)
-#                             link = vk_uploader(name_file, VK_folder) 
-#                             NewVKLinks.append(link)
-                            
-#                             print(f'''
-# ├{"―"*10} NEXT LINK:
-# ┊ Pervious LINK: {per_link}
-# ┊ VK link: {link}
-# ''')
-
-#                         elif list(link.split('.'))[-1] in block__image_list:
-#                             if not os.path.exists(Other_folder):os.mkdir(Other_folder)
-#                             os.chdir(Other_folder)
-#                             name_file = DDF(link, o)
-#                             # print(os.getcwd())
-                            
-#                             upload_to_server(name_file)
-#                             print(f'''
-# ├{"―"*10} NEXT LINK:
-# ┊ Pervious LINK: {per_link}
-# ┊ UPLOADED TO SERVER
-# ''')
-#                         o = o + 1
-#                         os.chdir(w_dir)
-#                     else:
-#                         NewVKLinks.append(link)
-#                         pass
-            
-            
-#             if 'imgs' == link: append_.append(link)
-#             if 'imgs18' == link: append_.append(link)
-        
-#         time.sleep(10)
-#     with open("NewVKLinks.json", "w") as outfile:json.dump(NewVKLinks, outfile, indent=4)
-# except:
-#     with open("NewVKLinks.json", "w") as outfile:json.dump(NewVKLinks, outfile, indent=4)
-
-        
-# print(f'''└{"―"*15}''')
 
 class Config():
     def __init__(self, config_file = 'config.json'):
